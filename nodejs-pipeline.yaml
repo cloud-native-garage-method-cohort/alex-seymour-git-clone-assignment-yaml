@@ -29,4 +29,3 @@ spec:
       workspaces:
         - name: dir-with-readme
           workspace: pipeline-shared-data
-          
