@@ -1,0 +1,19 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+   - generateName: express-sample-app-pipeline-run- # error
+spec:
+  pipelineRefs: # error
+    name: nodejs-pipeline
+  params:
+    - name: source-repo
+      value: https://github.com/alexseymour1997/express-sample-app
+  workspaces:
+    - name: pipeline-shared-data
+      volumeClamTemplate: # error
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 1Gi
